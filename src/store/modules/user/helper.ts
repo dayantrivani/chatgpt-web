@@ -17,7 +17,7 @@ export function defaultSetting(): UserState {
     userInfo: {
       avatar: '/question.png',
       name: 'CuriousAlice',
-      description: 'That is really interesting',
+      description: 'I am intrigued',
     },
   }
 }
