@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - run: |
-          echo 本次构建的版本为：${{ github.ref_name }}, dockertag为: ${{ GITHUB_SHA }}
+          echo 本次构建的版本为：${{ github.ref_name }}, dockertag为: ${{ github.sha }}
           env
 
       - name: Set up QEMU
@@ -38,5 +38,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/chatgpt-web:${{ GITHUB_SHA }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/chatgpt-web:${{ github.sha }}
             ${{ secrets.DOCKERHUB_USERNAME }}/chatgpt-web:latest
