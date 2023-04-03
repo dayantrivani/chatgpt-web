@@ -1,11 +1,11 @@
 # build front-end
 FROM node:lts-alpine AS frontend
 
-RUN npm install pnpm -g
-
 WORKDIR /app
 
 COPY pnpm /root/.local/share/pnpm/store/v3
+
+RUN npm install pnpm -g
 
 COPY ./package.json /app
 
@@ -20,11 +20,11 @@ RUN pnpm run build
 # build backend
 FROM node:lts-alpine as backend
 
-RUN npm install pnpm -g
-
 WORKDIR /app
 
 COPY pnpm /root/.local/share/pnpm/store/v3
+
+RUN npm install pnpm -g
 
 COPY /service/package.json /app
 
@@ -39,9 +39,13 @@ RUN pnpm build
 # service
 FROM node:lts-alpine
 
-RUN npm install pnpm -g
-
 WORKDIR /app
+
+EXPOSE 3002
+
+CMD ["pnpm", "run", "prod"]
+
+RUN npm install pnpm -g
 
 COPY /service/package.json /app
 
@@ -54,7 +58,3 @@ COPY /service /app
 COPY --from=frontend /app/dist /app/public
 
 COPY --from=backend /app/build /app/build
-
-EXPOSE 3002
-
-CMD ["pnpm", "run", "prod"]
