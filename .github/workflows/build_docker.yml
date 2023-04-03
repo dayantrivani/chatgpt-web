@@ -40,11 +40,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
-      - name: Install service dependencies 
-        run: pnpm install
-        working-directory: ./service
       - name: Copy file
         run: cp -r /home/runner/setup-pnpm/node_modules/.bin/store/v3 pnpm
       - name: Build and push
