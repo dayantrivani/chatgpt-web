@@ -32,7 +32,19 @@ jobs:
         name: Download the zh-CN prompt file
         with:
           url: "https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json"
-          target: public/    
+          target: public/
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install service dependencies 
+        run: pnpm install
+        working-directory: ./service
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v4
@@ -41,8 +53,6 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/chatgpt-web:${{ github.sha }}
             ${{ secrets.DOCKERHUB_USERNAME }}/chatgpt-web:latest
