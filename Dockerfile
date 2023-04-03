@@ -5,6 +5,8 @@ RUN npm install pnpm -g
 
 WORKDIR /app
 
+COPY /home/runner/setup-pnpm/node_modules/.bin/store/v3 /root/.local/share/pnpm/store/v3
+
 COPY ./package.json /app
 
 COPY ./pnpm-lock.yaml /app
@@ -22,6 +24,8 @@ RUN npm install pnpm -g
 
 WORKDIR /app
 
+COPY /home/runner/setup-pnpm/node_modules/.bin/store/v3 /root/.local/share/pnpm/store/v3
+
 COPY /service/package.json /app
 
 COPY /service/pnpm-lock.yaml /app
@@ -38,6 +42,8 @@ FROM node:lts-alpine
 RUN npm install pnpm -g
 
 WORKDIR /app
+
+COPY /home/runner/setup-pnpm/node_modules/.bin/store/v3 /root/.local/share/pnpm/store/v3
 
 COPY /service/package.json /app
 
