@@ -27,6 +27,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - uses: suisei-cn/actions-download-file@v1.3.0
+        id: downloadfile
+        name: Download the zh-CN prompt file
+        with:
+          url: "https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json"
+          target: public/    
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v4
