@@ -9,9 +9,9 @@ COPY ./package.json /app
 
 COPY ./pnpm-lock.yaml /app
 
-RUN pnpm install
-
 COPY . /app
+
+RUN pnpm install
 
 RUN pnpm run build
 
@@ -26,9 +26,9 @@ COPY /service/package.json /app
 
 COPY /service/pnpm-lock.yaml /app
 
-RUN pnpm install
-
 COPY /service /app
+
+RUN pnpm install
 
 RUN pnpm build
 
