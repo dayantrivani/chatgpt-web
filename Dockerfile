@@ -43,8 +43,6 @@ RUN npm install pnpm -g
 
 WORKDIR /app
 
-COPY pnpm /root/.local/share/pnpm/store/v3
-
 COPY /service/package.json /app
 
 COPY /service/pnpm-lock.yaml /app
