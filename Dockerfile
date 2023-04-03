@@ -5,7 +5,7 @@ RUN npm install pnpm -g
 
 WORKDIR /app
 
-COPY /home/runner/setup-pnpm/node_modules/.bin/store/v3 /root/.local/share/pnpm/store/v3
+COPY pnpm /root/.local/share/pnpm/store/v3
 
 COPY ./package.json /app
 
@@ -24,7 +24,7 @@ RUN npm install pnpm -g
 
 WORKDIR /app
 
-COPY /home/runner/setup-pnpm/node_modules/.bin/store/v3 /root/.local/share/pnpm/store/v3
+COPY pnpm /root/.local/share/pnpm/store/v3
 
 COPY /service/package.json /app
 
@@ -43,7 +43,7 @@ RUN npm install pnpm -g
 
 WORKDIR /app
 
-COPY /home/runner/setup-pnpm/node_modules/.bin/store/v3 /root/.local/share/pnpm/store/v3
+COPY pnpm /root/.local/share/pnpm/store/v3
 
 COPY /service/package.json /app
 
