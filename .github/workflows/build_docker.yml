@@ -46,7 +46,7 @@ jobs:
         run: pnpm install
         working-directory: ./service
       - name: Copy file
-        run: copy /home/runner/setup-pnpm/node_modules/.bin/store/v3 pnpm
+        run: cp -r /home/runner/setup-pnpm/node_modules/.bin/store/v3 pnpm
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v4
