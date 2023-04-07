@@ -1,9 +1,15 @@
 [
   {
     "key": "awesome-chatgpt-prompts-zh",
-    "desc": "ChatGPT 中文调教指南（简化下载）",
+    "desc": "ChatGPT 中文提示词指南（简化下载）",
     "downloadUrl": "/prompts-zh.json",
     "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh"
+  },
+  {
+    "key": "awesome-chatgpt-prompts-zh",
+    "desc": "ChatGPT 英文提示词指南（简化下载）",
+    "downloadUrl": "/prompts.json",
+    "url": "https://github.com/f/awesome-chatgpt-prompts"
   },
   {
     "key": "awesome-chatgpt-prompts-zh",

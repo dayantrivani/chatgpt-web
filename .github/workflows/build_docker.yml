@@ -25,12 +25,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: suisei-cn/actions-download-file@v1.3.0
-        id: downloadfile
-        name: Download the zh-CN prompt file
-        with:
-          url: "https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json"
-          target: public/
+      - name: Download prompt file
+        run: | 
+          curl -O --output-dir /public https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json
+          curl -O --output-dir /public https://raw.githubusercontent.com/dayantrivani/autoConvert-awesome-chatgpt-prompts-to-Json/main/prompts.json
       - uses: pnpm/action-setup@v2
         with:
           version: 7
