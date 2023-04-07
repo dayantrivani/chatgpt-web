@@ -27,8 +27,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Download prompt file
         run: | 
-          curl -O --output-dir /public https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json
-          curl -O --output-dir /public https://raw.githubusercontent.com/dayantrivani/autoConvert-awesome-chatgpt-prompts-to-Json/main/prompts.json
+          curl -O --output-dir public https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json
+          curl -O --output-dir public https://raw.githubusercontent.com/dayantrivani/autoConvert-awesome-chatgpt-prompts-to-Json/main/prompts.json
       - uses: pnpm/action-setup@v2
         with:
           version: 7
